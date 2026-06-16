@@ -7,6 +7,7 @@ This repo generates a deterministic matrix of apps (SvelteKit, Svelte SPA, Phoen
 ## Layout
 
 ```
+Makefile                # Convenience targets — make create / make test / make clean
 apps.json               # Single source of truth — the matrix declared here
 create-all.js           # Reads apps.json + runs the CLI (the actual logic)
 create-all.{sh,ps1}     # Thin shims around create-all.js (kept for habit)

@@ -36,7 +36,11 @@ param(
 $ErrorActionPreference = 'Stop'
 
 # ── Resolve $Target → list of app DirectoryInfo ────────────────────────────
-$allApps = @(Get-ChildItem $PSScriptRoot -Directory -Filter 'test-*' | Sort-Object Name)
+# Filter matches only test-NN-* directories — Playwright's `test-results/`
+# also starts with "test-" and would otherwise be treated as an app.
+$allApps = @(Get-ChildItem $PSScriptRoot -Directory -Filter 'test-*' |
+    Where-Object { $_.Name -match '^test-\d{2}-' } |
+    Sort-Object Name)
 $selectedApps = @()
 $mode = 'single'
 
