@@ -1,0 +1,124 @@
+{
+  "$comment": "Single source of truth for the test app matrix. Read by create-all.js (invoked from create-all.sh and create-all.ps1). Placeholders {{TPL_SK}}, {{TPL_SPA}}, {{TPL_PHX}} are substituted at runtime with the sibling template paths.",
+  "apps": [
+    {
+      "name": "test-01-sk-defaults",
+      "category": "sk-api",
+      "flags": ["--themes", "corporate", "--theme", "corporate"]
+    },
+    {
+      "name": "test-02-sk-full",
+      "category": "sk-api",
+      "flags": ["--themes", "corporate", "--theme", "corporate",
+                "--font-awesome", "--profile-panel", "--settings-panel"]
+    },
+    {
+      "name": "test-03-sk-preset-full",
+      "category": "sk-api",
+      "flags": ["--themes", "corporate", "--theme", "corporate",
+                "--company", "keenmate", "--preset", "full"]
+    },
+    {
+      "name": "test-04-sk-preset-poc",
+      "category": "sk-api",
+      "flags": ["--themes", "corporate", "--theme", "corporate",
+                "--company", "keenmate", "--preset", "poc"]
+    },
+    {
+      "name": "test-05-sk-tpl-defaults",
+      "category": "sk-local",
+      "flags": ["--template", "svelte-sveltekit", "--template-path", "{{TPL_SK}}",
+                "--themes", "corporate", "--theme", "corporate"]
+    },
+    {
+      "name": "test-06-sk-tpl-full",
+      "category": "sk-local",
+      "flags": ["--template", "svelte-sveltekit", "--template-path", "{{TPL_SK}}",
+                "--themes", "corporate", "--theme", "corporate",
+                "--font-awesome", "--profile-panel", "--settings-panel"]
+    },
+    {
+      "name": "test-07-sk-tpl-preset",
+      "category": "sk-local",
+      "flags": ["--template", "svelte-sveltekit", "--template-path", "{{TPL_SK}}",
+                "--themes", "corporate", "--theme", "corporate",
+                "--company", "keenmate", "--preset", "full"]
+    },
+    {
+      "name": "test-08-spa-full",
+      "category": "spa-api",
+      "flags": ["--template", "svelte-spa",
+                "--themes", "corporate", "--theme", "corporate",
+                "--font-awesome", "--profile-panel", "--settings-panel"]
+    },
+    {
+      "name": "test-09-spa-preset",
+      "category": "spa-api",
+      "flags": ["--template", "svelte-spa",
+                "--themes", "corporate", "--theme", "corporate",
+                "--company", "keenmate", "--preset", "full"]
+    },
+    {
+      "name": "test-10-spa-tpl-defaults",
+      "category": "spa-local",
+      "flags": ["--template", "svelte-spa", "--template-path", "{{TPL_SPA}}",
+                "--themes", "corporate", "--theme", "corporate"]
+    },
+    {
+      "name": "test-11-spa-tpl-full",
+      "category": "spa-local",
+      "flags": ["--template", "svelte-spa", "--template-path", "{{TPL_SPA}}",
+                "--themes", "corporate", "--theme", "corporate",
+                "--font-awesome", "--profile-panel", "--settings-panel"]
+    },
+    {
+      "name": "test-12-spa-tpl-preset",
+      "category": "spa-local",
+      "flags": ["--template", "svelte-spa", "--template-path", "{{TPL_SPA}}",
+                "--themes", "corporate", "--theme", "corporate",
+                "--company", "keenmate", "--preset", "full"]
+    },
+    {
+      "name": "test-13-phx-defaults",
+      "category": "phx-local",
+      "flags": ["--template", "phoenix-liveview", "--template-path", "{{TPL_PHX}}",
+                "--themes", "one-dark", "--theme", "one-dark", "--font-awesome"]
+    },
+    {
+      "name": "test-14-phx-no-ecto",
+      "category": "phx-local",
+      "flags": ["--template", "phoenix-liveview", "--template-path", "{{TPL_PHX}}",
+                "--themes", "tokyo-night", "--theme", "tokyo-night",
+                "--no-ecto", "--heroicons"]
+    },
+    {
+      "name": "test-15-phx-minimal",
+      "category": "phx-local",
+      "flags": ["--template", "phoenix-liveview", "--template-path", "{{TPL_PHX}}",
+                "--themes", "nato", "--theme", "nato", "--heroicons",
+                "--no-ecto", "--no-mailer", "--no-dashboard"]
+    },
+    {
+      "name": "test-16-phx-full-phx-flags",
+      "category": "phx-local",
+      "flags": ["--template", "phoenix-liveview", "--template-path", "{{TPL_PHX}}",
+                "--themes", "corporate", "--theme", "corporate", "--font-awesome",
+                "--no-mailer", "--no-dashboard"]
+    },
+    {
+      "name": "test-17-phx-full",
+      "category": "phx-local",
+      "flags": ["--template", "phoenix-liveview", "--template-path", "{{TPL_PHX}}",
+                "--themes", "audi", "--theme", "audi",
+                "--font-awesome", "--profile-panel", "--settings-panel"]
+    },
+    {
+      "name": "test-18-phx-bad-flag",
+      "category": "phx-local",
+      "expectFailure": true,
+      "expectError": "unknown flag",
+      "flags": ["--template", "phoenix-liveview", "--template-path", "{{TPL_PHX}}",
+                "--themes", "audi", "--theme", "audi", "--no-ectp"]
+    }
+  ]
+}

@@ -7,7 +7,9 @@ This repo generates a deterministic matrix of apps (SvelteKit, Svelte SPA, Phoen
 ## Layout
 
 ```
-create-all.{sh,ps1}     # Generate the full test matrix (or one app at a time)
+apps.json               # Single source of truth — the matrix declared here
+create-all.js           # Reads apps.json + runs the CLI (the actual logic)
+create-all.{sh,ps1}     # Thin shims around create-all.js (kept for habit)
 test.ps1                # Build + serve + Playwright for one app, a category, or all
 run.ps1                 # `make <target>` (default: dev) in a single test app
 clean.ps1               # Remove Playwright output and per-app temp logs
@@ -102,7 +104,7 @@ Harness files (scripts, configs, `tests/`, `node_modules/`) are never touched.
 
 ## Adding a new app variant
 
-1. Add a `Create-App` entry in **both** `create-all.sh` and `create-all.ps1` (they must stay in sync).
+1. Add an entry to `apps.json` — `name`, `category`, `flags` (use `{{TPL_SK}}` / `{{TPL_SPA}}` / `{{TPL_PHX}}` placeholders for `--template-path`).
 2. Add a project to `playwright.config.js` — `baseURL: http://127.0.0.1:42NN/` (or 4000 for Phoenix), `testMatch: <flavor>/<spec-name>.spec.js`.
 3. Drop the spec in `tests/<flavor>/`. Reuse `_lib/selectors.js` helpers — most assertions are one-liners.
 4. Regenerate the app with `.\create-all.ps1 -Test NN` and run `.\test.ps1 NN`.
