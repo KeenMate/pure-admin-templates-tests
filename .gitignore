@@ -1,0 +1,10 @@
+# Generated apps — recreated on demand via create-all.{sh,ps1}
+test-*/
+demo-*/
+
+# Test output — regenerated on every test.ps1 run, cleanup via clean.ps1
+playwright-report/
+test-results/
+
+# Dependencies
+node_modules/
