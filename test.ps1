@@ -81,7 +81,7 @@ if ($num) {
         'phx'   {
             # Only no-DB Phoenix apps. With-DB apps (13/16/17) require a running
             # Postgres + ecto.create; run them by NN if you've set that up.
-            $selectedApps = @($allApps | Where-Object { $_.Name -match '^test-(14|15)-phx-' })
+            $selectedApps = @($allApps | Where-Object { $_.Name -match '^test-(14|15|21)-phx-' })
         }
         default {
             Write-Host "  Unknown target '$Target'. Expected: NN | test-NN | all | sk | spa | api | local | phx" -ForegroundColor Red

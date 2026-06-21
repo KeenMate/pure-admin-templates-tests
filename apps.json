@@ -119,6 +119,36 @@
       "expectError": "unknown flag",
       "flags": ["--template", "phoenix-liveview", "--template-path", "{{TPL_PHX}}",
                 "--themes", "audi", "--theme", "audi", "--no-ectp"]
+    },
+    {
+      "name": "test-19-sk-no-icons",
+      "category": "sk-local",
+      "flags": ["--template", "svelte-sveltekit", "--template-path", "{{TPL_SK}}",
+                "--themes", "corporate", "--theme", "corporate",
+                "--no-icons"]
+    },
+    {
+      "name": "test-20-spa-no-icons",
+      "category": "spa-local",
+      "flags": ["--template", "svelte-spa", "--template-path", "{{TPL_SPA}}",
+                "--themes", "corporate", "--theme", "corporate",
+                "--no-icons"]
+    },
+    {
+      "name": "test-21-phx-no-icons",
+      "category": "phx-local",
+      "flags": ["--template", "phoenix-liveview", "--template-path", "{{TPL_PHX}}",
+                "--themes", "tokyo-night", "--theme", "tokyo-night",
+                "--no-ecto", "--no-icons"]
+    },
+    {
+      "name": "test-22-phx-no-icons-conflict",
+      "category": "phx-local",
+      "expectFailure": true,
+      "expectError": "--no-icons cannot be combined with",
+      "flags": ["--template", "phoenix-liveview", "--template-path", "{{TPL_PHX}}",
+                "--themes", "audi", "--theme", "audi",
+                "--no-icons", "--font-awesome"]
     }
   ]
 }

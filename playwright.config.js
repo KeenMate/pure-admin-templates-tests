@@ -45,10 +45,15 @@ module.exports = defineConfig({
     { name: 'test-11-spa-tpl-full',    use: { baseURL: 'http://127.0.0.1:4211/' }, testMatch: 'spa/spa-full.spec.js' },
     { name: 'test-12-spa-tpl-preset',  use: { baseURL: 'http://127.0.0.1:4212/' }, testMatch: 'spa/spa-preset-full.spec.js' },
 
-    // ── Phoenix LiveView (no-DB apps only — test-14 + test-15) ────────────
+    // ── Phoenix LiveView (no-DB apps only — test-14 + test-15 + test-21) ──
     // Phoenix dev port is 4000 (config/dev.exs is compile-time); runs are
     // sequential so all phx projects share one baseURL.
     { name: 'test-14-phx-no-ecto',     use: { baseURL: 'http://127.0.0.1:4000/' }, testMatch: 'phoenix/phx-no-ecto.spec.js' },
     { name: 'test-15-phx-minimal',     use: { baseURL: 'http://127.0.0.1:4000/' }, testMatch: 'phoenix/phx-minimal.spec.js' },
+    { name: 'test-21-phx-no-icons',    use: { baseURL: 'http://127.0.0.1:4000/' }, testMatch: 'phoenix/phx-no-icons.spec.js' },
+
+    // ── --no-icons variants (SK + SPA) ───────────────────────────────────
+    { name: 'test-19-sk-no-icons',     use: { baseURL: 'http://127.0.0.1:4219/' }, testMatch: 'sveltekit/sk-no-icons.spec.js' },
+    { name: 'test-20-spa-no-icons',    use: { baseURL: 'http://127.0.0.1:4220/' }, testMatch: 'spa/spa-no-icons.spec.js' },
   ],
 });
